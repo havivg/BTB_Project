@@ -1,0 +1,60 @@
+﻿@model BTB_Project.Models.UserLoginData
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+
+
+
+@using (Html.BeginForm("Login", "Home", FormMethod.Post))
+{
+
+    <form action="action_page.php" method="post">
+
+        @Html.AntiForgeryToken()
+        <div class="flex-container">
+            <h1>
+                התחברות
+            </h1>
+            <div class="row">
+
+                <div class="form-group">
+                    @Html.TextBoxFor(m => m.Id, "", new { @class = "form-control", @placeholder = "תעודת זהות:" })<br/>
+                    @Html.ValidationMessageFor(m => m.Id, null, new { @class = "badge badge-danger" })
+
+
+                </div>
+
+                <div class="form-group">
+                    @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = "סיסמא" })<br/>
+                    @Html.ValidationMessageFor(m => m.Password, null, new { @class = "badge badge-danger" })
+                </div>
+
+
+                <div class="form-group-left">
+                    <input type="image" name="submit" src="../next2.png" alt="Submit" class="btn btn-primary" value="next" />
+                    <!--input type="submit" name="submit" class="btn btn-primary" value="Login" /-->
+
+                </div>
+                @if (TempData["Message"] != null)
+                {<script type="text/javascript">
+window.onload = function () {
+alert("@TempData["Message"]");
+};
+</script>
+            
+                }
+            </div>
+
+
+
+        </div>
+    </form>
+
+}
+
+
+
+

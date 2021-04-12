@@ -1,0 +1,212 @@
+﻿body {
+	font: "Trebuchet MS", Verdana, sans-serif;
+	color: #696969;
+	padding-top: 200px;
+	padding-left: 800px;
+	
+	
+	
+}
+
+.body1 {
+	background-image: url('../Background1.jpg');
+	background-color: #cccccc;
+}
+
+.body2 {
+	background-image: url('../Background2.JPG');
+	background-color: #cccccc;
+}
+
+h1 {
+	
+	font: Georgia, serif;
+	color: black;
+	text-align: right;
+	font-size:30px;
+}
+
+h2 {
+	font: Georgia, serif;
+	color: black;
+	text-align: right;
+	font-size: 20px;
+}
+
+#main {
+	padding: 20px;
+	border-radius: 0 4px 4px 4px;
+	
+	
+}
+
+a {
+	text-decoration: none;
+	display: inline-block;
+	padding: 8px 16px;
+}
+.previous {
+	background-color: #f1f1f1;
+	color: black;
+}
+.round {
+	border-radius: 50%;
+}
+/* Menu Styles ------------------------------*/
+ul#menu {
+	padding: 0px;
+	position: relative;
+	margin: 0;
+}
+
+	ul#menu li {
+		display: inline;
+	}
+
+		ul#menu li a {
+			background-color: #e8eef4;
+			padding: 10px 20px;
+			text-decoration: none;
+			line-height: 2.8em;
+			/*CSS3 properties*/
+			border-radius: 4px 4px 0 0;
+		}
+
+			ul#menu li a:hover {
+				background-color: #ffffff;
+			}
+
+
+/* Full-width inputs */
+input[type=text], input[type=password] {
+	width: 50%;
+	padding: 12px 12px;
+	margin: 20px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	box-sizing: border-box;
+	text-align: center;
+	vertical-align: middle;
+}
+
+
+
+/* Set a style for all buttons */
+.button {
+	background-color: Transparent;
+	border: none;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+
+
+
+.column {
+	float: left;
+	width: 50%;
+	text-align:right;
+}
+
+/* Clear floats after the columns */
+.row:after {
+	content: "";
+	display: table;
+	clear: both;
+	text-align:right;
+}
+
+
+
+input[type="submit"] {
+	padding: 20px;
+	
+}
+/* Data Styles ------------------------------*/
+table.data {
+	background-color: #ffffff;
+	text-align:right;
+	border-collapse: collapse;
+	width: 100%;
+}
+
+	table.data th {
+		background-color: #e8eef4;
+		border: 1px solid #c3c3c3;
+		padding: 10px;
+		text-align: right;
+	}
+
+	table.data td {
+		border: 1px solid #c3c3c3;
+		padding: 10px;
+		text-align: right;
+	}
+td {
+	text-align: right;
+	height: 20px;
+}
+table {
+	width: 100%;
+	
+	
+}
+
+.field-validation-error {
+	display: block;
+	text-align: left;
+}
+
+
+.container {
+	padding: 16px;
+}
+
+.flex-container {
+	justify-content: right;
+}
+
+.form-group{
+	text-align:right
+}
+
+.form-group-left {
+	text-align: left
+}
+
+
+.badge {
+	display: inline-block;
+	padding: 0.25em 0.4em;
+	font-size: 75%;
+	font-weight: 700;
+	line-height: 1;
+	text-align: center;
+	white-space: nowrap;
+	vertical-align: baseline;
+	border-radius: 0.25rem;
+	transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.badge-pill {
+	padding-right: 0.6em;
+	padding-left: 0.6em;
+	border-radius: 10rem;
+}
+
+
+.badge-danger {
+	color: #fff;
+	background-color: #dc3545;
+}
+
+a.badge-danger:hover, a.badge-danger:focus {
+	color: #fff;
+	background-color: #bd2130;
+}
+
+a.badge-danger:focus, a.badge-danger.focus {
+	outline: 0;
+	box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.5);
+}
+

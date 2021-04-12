@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width " />
+    <title>@ViewBag.Title</title>
+    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
+    <!--link href="~/Content/bootstrap.min.css" rel="stylesheet" /-->
+
+    <script src="~/Scripts/jquery-3.0.0.min.js"></script>
+    @RenderSection("scripts", required: false)
+</head>
+<body class="body2">
+
+    <section id="main">
+        @RenderBody()
+    </section>
+
+</body>
+
+<script src="~/Scripts/bootstrap.min.js"></script>
+</html>

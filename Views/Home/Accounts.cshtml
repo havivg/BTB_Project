@@ -1,0 +1,145 @@
+﻿@model BTB_Project.Models.User
+@{
+    ViewBag.Title = "Accounts";
+    Layout = "~/Views/Shared/_LayoutPage2.cshtml";
+}
+
+@section scripts{
+    <script type="text/javascript">
+        var counter = 0;
+        function add() {
+            if (checkValid() == false) {
+                return true;
+            }
+            counter = counter + 1;
+            $('<tr id="tablerow' + counter + '"><td>' +
+                '<button type="button" class="button" onclick="removeTr(' + counter + ');">הסר -</button>' +
+                '</td>' +
+                '<td>' +
+                '<input type="text" class="text-box single-line" name="AccountsId[' + counter + ']" value="" required="required" placeholder="חשבון" />' +
+                
+                '</td>' +
+                '<td>' +
+                '<input type="text" class="text-box single-line" name="Branches[' + counter + ']" value="" required="required" placeholder="סניף" />' +
+                '</td>' +
+                '<td>' +
+                '<input type="text" class="text-box single-line" name="Banks[' + counter + ']" value="" required="required" placeholder="בנק"/>' +
+                '</td>' +
+                '</tr>').appendTo('#submissionTable');
+            
+            return false;
+        }
+        function removeTr(index) {
+
+            if (counter > 0) {
+                $('#tablerow' + index).remove();
+                //counter--;
+            }
+            return false;
+        }
+
+        function checkValid() {
+            var bank = document.getElementsByName('Banks[' + counter + ']')[0].value;
+            var account = document.getElementsByName('AccountsId[' + counter + ']')[0].value;
+            var branch = document.getElementsByName('Branches[' + counter + ']')[0].value;
+            if (bank == "" || account == "" || branch=="") {
+                alert('אנא מלא את כל השדות');
+                return false;
+            }
+            else {
+                return true;
+            }
+            
+        
+        }
+
+
+    </script>
+}
+@using (Html.BeginForm("Accounts", "Home", FormMethod.Post))
+{
+    //@Html.AntiForgeryToken()
+    //@Html.ValidationSummary(true)
+<form action="action_page.php" method="post">
+
+    @Html.AntiForgeryToken()
+
+    <div class="flex-container">
+        <h1>
+
+            <label>אנא מלאו את פרטי החשבונות של חברת "</label>@Html.DisplayFor(m => m.CompanyName)<label>"</label>
+        </h1>
+        <h2>
+
+            <label>ח.פ:</label>@Html.DisplayFor(m => m.CompanyNumber)
+        </h2>
+        <div class="form-group">
+            <select class="form-control" name="Holding" style="width:200px;">
+                <option>החזקה</option>
+                <option value="10">10%</option>
+                <option value="20">20%</option>
+                <option value="30">30%</option>
+                <option value="40">40%</option>
+                <option value="50">50%</option>
+                <option value="60">60%</option>
+                <option value="70">70%</option>
+                <option value="80">80%</option>
+                <option value="90">90%</option>
+            </select>
+        </div>
+        <table id="submissionTable" class="table">
+
+
+            <tr id="tablerow0">
+                <td>
+                    <button type="button" class="button" onclick="javascript: return removeTr(0);">הסר -</button>
+                </td>
+                <td>
+                    <div class="editor-field">
+                        <input class="text-box single-line"  name="AccountsId[0]" type="text" value="" required placeholder="חשבון" />
+                    </div>
+                </td>
+                <td>
+                    <div class="editor-field">
+                        <input class="text-box single-line" name="Branches[0]" type="text" value="" required placeholder="סניף" />
+                    </div>
+                </td>
+                <td>
+                    <div class="editor-field">
+
+                        <input class="text-box single-line" name="Banks[0]" type="text" value="" required placeholder="בנק" />
+                    </div>
+                </td>
+
+
+
+                <td>
+                </td>
+            </tr>
+        </table>
+
+        <div class="form-group">
+            <button type="button" class="button" onclick="javascript:return add();">הוסף חשבון +</button>
+
+        </div>
+
+        <p>
+            <input type="image" name="submit" src="../next2.png" alt="Submit" class="btn btn-primary" value="next" />
+            <!--input type="submit" value="create" class="btn btn-default" /-->
+        </p>
+
+        @if (TempData["Message"] != null)
+        {
+            <script type="text/javascript">
+window.onload = function () {
+alert("@TempData["Message"]");
+};
+            </script>
+
+        }
+    </div>
+</form>
+
+}
+
+

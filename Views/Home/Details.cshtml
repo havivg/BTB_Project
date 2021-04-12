@@ -1,0 +1,99 @@
+﻿@model BTB_Project.Models.User
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+
+
+@using (Html.BeginForm("Details", "Home", FormMethod.Post))
+{
+    <form action="action_page.php" method="post">
+        
+        @Html.AntiForgeryToken()
+
+        <div class="flex-container">
+            <h1>
+                אנא השלימו את הפרטים הבאים
+            </h1>
+                <div class="row">
+                    <div class="column">
+                        <div class="form-group">
+                            
+                            @Html.TextBoxFor(m => m.FamilyName, "", new { @class = "form-control", @placeholder = "שם משפחה:" })
+                            @Html.ValidationMessageFor(m => m.FamilyName, "", new { @class = "badge badge-danger" })
+
+                        </div>
+
+                        <div class="form-group">
+                            
+                            @Html.TextBoxFor(m => m.DateOfBirth, "", new { @class = "form-control", @placeholder = "תאריך לידה:" })
+                            @Html.ValidationMessageFor(m => m.DateOfBirth, "", new { @class = "badge badge-danger" })
+
+                        </div>
+
+                        <div class="form-group">
+                            
+                            @Html.TextBoxFor(m => m.Email, "", new { @class = "form-control", @placeholder = "דואר אלקטרוני:" })
+                            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "badge badge-danger" })
+
+                        </div>
+
+                        <div class="form-group">
+                            
+                            @Html.TextBoxFor(m => m.CompanyNumber, "", new { @class = "form-control", @placeholder = "ח.פ/שותפות/עמותה:" })
+                            @Html.ValidationMessageFor(m => m.CompanyNumber, "", new { @class = "badge badge-danger" })
+
+                        </div>
+
+
+
+                    </div>
+                    <div class="column">
+                        <div class="form-group">
+                            
+                            @Html.TextBoxFor(m => m.FirstName, "", new { @class = "form-control", @placeholder = "שם פרטי:" })
+                            @Html.ValidationMessageFor(m => m.FirstName, "", new { @class = "badge badge-danger" })
+
+                        </div>
+                        <div class="form-group">
+
+                            
+                            @Html.TextBoxFor(m => m.Id, "", new { @readonly = true, @class = "form-control", @placeholder = "תעודת זהות:" })
+                            @Html.ValidationMessageFor(m => m.Id, "", new { @class = "badge badge-danger" })
+
+
+                            @if (ViewBag.error != null)
+                            {
+                                <span class="badge badge-danger">@ViewBag.error</span>
+                            }
+                        </div>
+
+                        <div class="form-group">
+                            
+                            @Html.TextBoxFor(m => m.PhoneNumber, "", new { @class = "form-control", @placeholder = "טלפון:" })
+                            
+
+                        </div>
+
+                        <div class="form-group">
+                           
+                            @Html.TextBoxFor(m => m.CompanyName, "", new { @class = "form-control", @placeholder = "שם העסק:" })
+                            @Html.ValidationMessageFor(m => m.CompanyName, "", new { @class = "badge badge-danger" })
+
+                        </div>
+
+                    </div>
+                    <div class="form-group-left">
+                        <input type="image" name="submit" src="../next2.png" alt="Submit"class="btn btn-primary" value="next" />
+                        
+                    </div>
+                </div>
+            </div>
+
+
+
+        </form>
+        }
+
+
